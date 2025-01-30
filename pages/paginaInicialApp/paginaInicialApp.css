@@ -14,24 +14,22 @@
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: var(--background);
     color: var(--text);
 }
 
-.container-form {
-    width: 600px;
+.container-pagina-inicial {
+    max-width: 960px;
+    height: 100vh;
     border: 1px solid var(--primary);
-    border-radius: 8px;
-}
-
-.container-form form {
     margin: 0 auto;
 }
 
-.container-form form button {
-    width: 100%;
+.container-pagina-inicial header {
+    background-color: var(--secundary);
+}
+
+.card-container {
+    max-width: 600px;
+    margin: 0 auto;
 }

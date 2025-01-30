@@ -16,7 +16,7 @@ formLogin.addEventListener("submit", (e) => {
     const usuario = listaUsuarios.find(usuario => usuario.email === email && usuario.senha === senha)
 
     if(usuario) {
-        alert("Login bem-sucedido!")
+        window.location.href = "pages/paginaInicialApp/paginaInicialApp.html"
     } else {
         alert("Usuário ou senha incorretos!");
     }

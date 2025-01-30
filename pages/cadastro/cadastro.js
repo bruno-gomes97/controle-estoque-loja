@@ -23,4 +23,6 @@ formCadastro.addEventListener("submit", (e) => {
 
     localStorage.setItem("listaUsuario", JSON.stringify(listaCadastro));
     formCadastro.reset();
+
+    window.location.href = "../../index.html";
 })
