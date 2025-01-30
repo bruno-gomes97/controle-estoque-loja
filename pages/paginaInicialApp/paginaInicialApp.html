@@ -8,6 +8,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="paginaInicialApp.css">
     <script src="paginaInicialApp.js" defer></script>
+    <script src="cadastrarCliente.js" defer></script>
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 </head>
 <body>
@@ -19,13 +20,14 @@
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal"
-                        data-bs-target="#modal">
+                        data-bs-target="#modalCadastrarItem">
                         <i class="ph ph-plus-square"></i>
                         Cadastrar item
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="#" data-bs-toggle="modal"
+                    data-bs-target="#modalCadastrarCliente">
                         <i class="ph ph-user-plus"></i>
                         Cadastrar cliente
                     </a>
@@ -53,8 +55,8 @@
         </section>
     </section>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal cadastrar item -->
+    <div class="modal fade" id="modalCadastrarItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -94,6 +96,43 @@
                             <input type="number" class="form-control" id="input-quantidade">
                         </div>
                         <button type="submit" class="btn btn-primary">Cadastrar Item</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Modal cadastrar cliente -->
+     <div class="modal fade" id="modalCadastrarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Cliente</h1>
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-modal-cliente">
+                        <div class="mb-3">
+                            <label for="input-nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="input-nome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="input-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="input-email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="input-telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="input-telefone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="input-cpf-cnpj" class="form-label">CPF/CNPJ</label>
+                            <input type="text" class="form-control" id="input-cpf-cnpj">
+                        </div>
+                        <div class="mb-3">
+                            <label for="input-endereco" class="form-label">Endereço</label>
+                            <input type="text" class="form-control" id="input-endereco">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Cadastrar Cliente</button>
                     </form>
                 </div>
             </div>
