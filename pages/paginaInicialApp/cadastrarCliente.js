@@ -52,4 +52,4 @@ function buscarCliente() {
     return JSON.parse(localStorage.getItem("listaCliente")) || []
 }
 
-window.onload = exibirListaClientes;
+document.addEventListener("DOMContentLoaded", exibirListaClientes);

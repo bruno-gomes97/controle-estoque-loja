@@ -1,6 +1,8 @@
 const formModal = document.getElementById("form-modal");
 const cardContainer = document.querySelector(".card-container");
 
+let listaProduto = []
+
 formModal.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -62,4 +64,4 @@ function exibirItens() {
     });
 }
 
-window.onload = exibirItens;
+document.addEventListener("DOMContentLoaded", exibirItens);
