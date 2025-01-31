@@ -6,32 +6,56 @@ Este é um sistema de controle de estoque para a empresa **Bela Compra**. A plat
 
 ### Página de Login
 
-- O sistema começa com uma página de login onde o funcionário deve inserir suas credenciais.
-- Caso o funcionário não tenha cadastro, ele pode se registrar clicando em um link de cadastro.
-- Se o funcionário já tiver cadastro, basta fazer o login para acessar a tela inicial.
+- O sistema inicia com uma tela de login onde o vendedor pode inserir suas credenciais.
+- Caso seja a primeira vez, ele pode se cadastrar, e os dados serão armazenados no **LocalStorage**.
+- Se o vendedor já estiver cadastrado, ele será redirecionado para a tela onde os produtos estão cadastrados.
 
-### Tela Inicial
+### Tela de Produtos
 
-A tela inicial é composta por:
+Após o login, o vendedor tem acesso à tela principal, onde pode gerenciar os produtos cadastrados. 
 
-![Tela Inicial](documentos/img-1.png)
+- **Menu de Opções**:
+  - **Cadastrar Itens**: Permite adicionar novos produtos ao estoque.
+  - **Cadastrar Clientes**: Abre um formulário para registrar clientes.
+  - **Página de Clientes**: Direciona para a lista de clientes cadastrados.
 
-- **Botões de Cadastro**: Dois botões para acessar modais de cadastro:
-  - **Cadastrar Produto**: Abre um modal para cadastrar novos itens no estoque.
-  - **Cadastrar Cliente**: Abre outro modal para cadastrar novos clientes.
-  
-- **Lista de Produtos**: Exibição dinâmica da lista de produtos cadastrados. A lista será atualizada automaticamente conforme novos itens forem cadastrados.
+- **Cadastro e Exibição de Produtos**:
+  - Ao cadastrar um item, ele é armazenado no **LocalStorage** e exibido imediatamente na tela.
+  - Cada produto possui as seguintes informações:
+    - **Descrição**
+    - **Tamanho**
+    - **Preço de Custo**
+    - **Preço de Venda**
+    - **Fornecedor**
+
+### Página de Clientes
+
+Na página de clientes, o sistema busca os registros salvos no **LocalStorage** e exibe a lista de clientes cadastrados.
+
+- **Gerenciamento de Clientes**:
+  - Cada cliente aparece em um card contendo seu nome e informações básicas.
+  - O vendedor pode clicar em **Visualizar Dados**, o que abre um modal com os detalhes completos do cliente.
+  - No modal, há opções para:
+    - **Editar Dados**: Permite modificar as informações do cliente.
+    - **Excluir Cliente**: Remove o cliente do sistema.
 
 ## Fluxo de Uso
 
-1. **Login/Cadastro**: O funcionário acessa a página inicial e faz login com suas credenciais. Caso não tenha um cadastro, ele pode realizar o registro.
-2. **Tela Inicial**: Após o login, o funcionário é redirecionado à tela inicial.
-    - Ao clicar em **Cadastrar Produto**, um modal é aberto para que o funcionário possa inserir as informações do produto, como nome, quantidade, preço, etc.
-    - Ao clicar em **Cadastrar Cliente**, um modal é aberto para registrar os dados do cliente, como nome, e-mail, telefone, etc.
-3. **Gestão de Estoque**: A lista de produtos cadastrados é exibida na tela inicial, permitindo o monitoramento em tempo real do estoque da empresa.
+1. **Login/Cadastro**: O vendedor acessa a tela inicial e faz login. Caso não tenha cadastro, ele pode se registrar.
+2. **Tela de Produtos**:
+   - O vendedor pode cadastrar um novo item, que será armazenado no **LocalStorage** e exibido na lista automaticamente.
+   - Pode navegar até a **Página de Clientes** através do menu.
+3. **Gestão de Clientes**:
+   - A lista de clientes cadastrados é exibida.
+   - O vendedor pode visualizar, editar ou excluir os dados de um cliente.
 
 ## Tecnologias Usadas
 
 - **Frontend**: HTML, CSS, JavaScript
+- **Armazenamento**: LocalStorage
+
+---
+
+![Tela Inicial](documentos/img-1.png)
 
 ![Kanban](documentos/img-2.png)
