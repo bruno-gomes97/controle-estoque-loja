@@ -51,7 +51,8 @@ Na página de clientes, o sistema busca os registros salvos no **LocalStorage** 
 
 ## Tecnologias Usadas
 
-- **Frontend**: HTML, CSS, JavaScript
+- **Frontend**: React, Next.js (App Router)
+- **Estilização**: Tailwind CSS
 - **Armazenamento**: LocalStorage
 
 ![Tela Inicial](documentos/img-login.png)

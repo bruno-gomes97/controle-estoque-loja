@@ -1,9 +1,48 @@
+'use client'
+
+import { useState } from "react";
 interface CrudModalProps {
     isOpen: boolean;
     onClose: () => void;
   }
 
 export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
+  const [descricao, setDescricao] = useState('');
+  const [tamanho, setTamanho] = useState('P');
+  const [fornecedor, setFornecedor] = useState('');
+  const [precoCusto, setPrecoCusto] = useState('');
+  const [precoVenda, setPrecoVenda] = useState('');
+  const [quantidade, setQuantidade] = useState<number>(0);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const newProduct = {
+      descricao,
+      tamanho,
+      fornecedor,
+      precoCusto,
+      precoVenda,
+      quantidade
+    }
+
+    // Armazenar no localStorage
+    const products = JSON.parse(localStorage.getItem("products") || "[]");
+    products.push(newProduct);
+    localStorage.setItem("products", JSON.stringify(products));
+
+    // Limpar os campos do formulário
+    setDescricao("");
+    setTamanho("P");
+    setFornecedor("");
+    setPrecoCusto('');
+    setPrecoVenda('');
+    setQuantidade(0);
+
+    // Fechar o modal após salvar
+    onClose();
+  }
+
   return (
     <div
       className={`fixed inset-0 z-50 ${
@@ -35,14 +74,15 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
           </button>
         </div>
 
-        {/* Modal Body */}
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="description" className="block text-sm font-medium">
               Descrição
             </label>
             <textarea
               id="description"
+              value={descricao}
+              onChange={(e) => setDescricao(e.target.value)}
               className="w-full p-2 border rounded mt-2"
               placeholder="Digite a descrição do produto"
             ></textarea>
@@ -52,7 +92,7 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
             <label htmlFor="size" className="block text-sm font-medium">
               Tamanho
             </label>
-            <select id="size" className="w-full p-2 border rounded mt-2">
+            <select id="size" value={tamanho} onChange={(e) => setTamanho(e.target.value)} className="w-full p-2 border rounded mt-2">
               <option value="P">P</option>
               <option value="M">M</option>
               <option value="G">G</option>
@@ -67,6 +107,8 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
             <input
               type="text"
               id="supplier"
+              value={fornecedor}
+              onChange={(e) => setFornecedor(e.target.value)}
               className="w-full p-2 border rounded mt-2"
               placeholder="Digite o fornecedor"
             />
@@ -77,8 +119,10 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
               Preço Custo
             </label>
             <input
-              type="number"
+              type="text"
               id="costPrice"
+              value={precoCusto}
+              onChange={(e) => setPrecoCusto(e.target.value)}
               className="w-full p-2 border rounded mt-2"
               placeholder="Preço de custo"
             />
@@ -89,8 +133,10 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
               Preço de Venda
             </label>
             <input
-              type="number"
+              type="text"
               id="salePrice"
+              value={precoVenda}
+              onChange={(e) => setPrecoVenda(e.target.value)}
               className="w-full p-2 border rounded mt-2"
               placeholder="Preço de venda"
             />
@@ -101,8 +147,10 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
               Quantidade
             </label>
             <input
-              type="number"
+              type="text"
               id="quantity"
+              value={quantidade}
+              onChange={(e) => setQuantidade(Number(e.target.value))}
               className="w-full p-2 border rounded mt-2"
               placeholder="Quantidade em estoque"
             />
