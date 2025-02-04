@@ -14,7 +14,7 @@ Este é um sistema de controle de estoque para a empresa **Bela Compra**. A plat
 
 A tela inicial é composta por:
 
-![Tela Inicial](documentos/img-1.png)
+![Tela Inicial](documentos/img-login.png)
 
 - **Botões de Cadastro**: Dois botões para acessar modais de cadastro:
   - **Cadastrar Produto**: Abre um modal para cadastrar novos itens no estoque.
