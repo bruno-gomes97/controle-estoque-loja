@@ -7,8 +7,6 @@ export default function Cadastro() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [endereco, setEndereco] = useState("");
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();
 
@@ -22,9 +20,7 @@ export default function Cadastro() {
     const userData = {
       nome,
       email,
-      password,
-      telefone,
-      endereco,
+      password
     };
 
     //armazena no localStorage

@@ -3,8 +3,17 @@
 import Navbar from "../components/navbar/Navbar";
 import { useEffect, useState } from "react";
 
+interface Product {
+    descricao: string;
+    tamanho: string;
+    fornecedor: string;
+    precoCusto: string;
+    precoVenda: string;
+    quantidade: number;
+} 
+
 export default function TelaInicial() {
-    const [products, setProducts] = useState<any[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
         const storedProducts = JSON.parse(localStorage.getItem('products') || '[]');
@@ -13,7 +22,7 @@ export default function TelaInicial() {
 
     return (
         <section className="flex flex-col justify-center items-center">
-            <Navbar />
+            <Navbar isClient={false}/>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 w-full px-4">
                 {products.map((product, index) => (

@@ -14,6 +14,10 @@ export default function Login() {
     setIsClient(true); // Atualiza quando estiver no lado do cliente
   }, []);
 
+  if (!isClient) {
+    return null; // Impede a renderização no servidor, se necessário
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
