@@ -80,35 +80,6 @@ export default function Cadastro() {
             required
           />
         </div>
-
-        <div>
-          <label htmlFor="telefone" className="block text-sm font-medium">
-            Telefone
-          </label>
-          <input
-            type="text"
-            id="telefone"
-            value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="endereco" className="block text-sm font-medium">
-            Endereço
-          </label>
-          <input
-            type="text"
-            id="endereco"
-            value={endereco}
-            onChange={(e) => setEndereco(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
-            required
-          />
-        </div>
-
         <button
           type="submit"
           className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-700"

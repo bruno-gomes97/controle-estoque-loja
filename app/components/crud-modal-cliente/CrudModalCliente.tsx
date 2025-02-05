@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 interface CrudClientModalProps {
   isOpen: boolean;
@@ -7,6 +7,38 @@ interface CrudClientModalProps {
 }
 
 const CrudClientModal: React.FC<CrudClientModalProps> = ({ isOpen, onClose }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [endereco, setEndereco] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const client = {
+      id: Date.now(),
+      name,
+      email,
+      telefone,
+      endereco
+    }
+
+    // Armazenar no localStorage
+    const clients = JSON.parse(localStorage.getItem("clients") || "[]");
+    clients.push(client);
+    localStorage.setItem("clients", JSON.stringify(clients));
+    
+    setName('');
+    setEmail('')
+    setTelefone('')
+    setEndereco('')  
+
+    // Fechar o modal após salvar
+    onClose();
+    window.location.reload();
+  }
+
+
   if (!isOpen) return null;
 
   return (
@@ -21,10 +53,13 @@ const CrudClientModal: React.FC<CrudClientModalProps> = ({ isOpen, onClose }) =>
         </div>
 
         {/* Formulário */}
-        <form className="mt-4 space-y-4">
+        <form onSubmit={handleSubmit} className="mt-4 space-y-4">
           <div>
-            <label className="block text-sm font-medium">Nome Completo</label>
+            <label htmlFor="fullName" className="block text-sm font-medium">Nome Completo</label>
             <input
+              id="fullName"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               type="text"
               placeholder="Digite o nome completo"
               className="w-full p-2 border rounded mt-1"
@@ -32,8 +67,11 @@ const CrudClientModal: React.FC<CrudClientModalProps> = ({ isOpen, onClose }) =>
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Email</label>
+            <label htmlFor="email" className="block text-sm font-medium">Email</label>
             <input
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="Digite o email"
               className="w-full p-2 border rounded mt-1"
@@ -41,8 +79,11 @@ const CrudClientModal: React.FC<CrudClientModalProps> = ({ isOpen, onClose }) =>
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Telefone</label>
+            <label htmlFor="phone" className="block text-sm font-medium">Telefone</label>
             <input
+              id="phone"
+              value={telefone}
+              onChange={(e) => setTelefone(e.target.value)}
               type="tel"
               placeholder="Digite o telefone"
               className="w-full p-2 border rounded mt-1"
@@ -50,8 +91,10 @@ const CrudClientModal: React.FC<CrudClientModalProps> = ({ isOpen, onClose }) =>
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Endereço</label>
+            <label htmlFor="addres" className="block text-sm font-medium">Endereço</label>
             <textarea
+              id="adress"
+              onChange={(e) => setEndereco(e.target.value)}
               placeholder="Digite o endereço"
               className="w-full p-2 border rounded mt-1"
             ></textarea>

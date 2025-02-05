@@ -41,6 +41,7 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
 
     // Fechar o modal após salvar
     onClose();
+    window.location.reload();
   }
 
   return (
@@ -49,7 +50,7 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
         isOpen ? "flex" : "hidden"
       } justify-center items-center bg-black bg-opacity-50`}
     >
-      <div className="relative bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+      <div className="relative bg-white rounded-lg shadow-lg p-4 h-90 w-full max-w-md">
         {/* Modal Header */}
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-semibold">Registrar Produto</h3>
@@ -75,7 +76,7 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
         </div>
 
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="description" className="block text-sm font-medium">
               Descrição
             </label>
@@ -88,7 +89,7 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
             ></textarea>
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="size" className="block text-sm font-medium">
               Tamanho
             </label>
@@ -100,7 +101,7 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
             </select>
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="supplier" className="block text-sm font-medium">
               Fornecedor
             </label>
@@ -114,7 +115,7 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="costPrice" className="block text-sm font-medium">
               Preço Custo
             </label>
@@ -128,7 +129,7 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="salePrice" className="block text-sm font-medium">
               Preço de Venda
             </label>
@@ -142,7 +143,7 @@ export default function CrudModal({ isOpen, onClose }: CrudModalProps) {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="quantity" className="block text-sm font-medium">
               Quantidade
             </label>
