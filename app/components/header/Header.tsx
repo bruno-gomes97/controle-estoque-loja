@@ -1,5 +1,3 @@
-import Navbar from "../navbar/Navbar";
-
 export default function Header() {
   return (
     <header className="bg-primary text-text py-8">

@@ -11,11 +11,11 @@ export default function Login() {
   const router = useRouter();
 
   useEffect(() => {
-    setIsClient(true); // Atualiza quando estiver no lado do cliente
+    setIsClient(true); 
   }, []);
 
   if (!isClient) {
-    return null; // Impede a renderização no servidor, se necessário
+    return null; 
   }
 
   const handleSubmit = (e: React.FormEvent) => {

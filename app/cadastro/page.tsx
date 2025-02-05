@@ -11,8 +11,12 @@ export default function Cadastro() {
   const router = useRouter();
 
   useEffect(() => {
-    setIsClient(true);
+    setIsClient(true); 
   }, []);
+
+  if (!isClient) {
+    return null; 
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
